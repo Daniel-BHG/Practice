@@ -10,6 +10,13 @@
 num = 99999
 if substrated_num > 0
 num(99999) - 9 - 90 - 900
+
+ex) 1002
+1~9
+10~99
+100~999
+1000~1002
+
 */
 
 #include <stdio.h>
@@ -30,8 +37,9 @@ int counter(int N, int multiplier){
     if (if_possible_recursive > 0){
         cnt += (multiplier+1)*9 + counter(updated_N-((int)pow(10,0)*9), multiplier+1);
     }
-    else { // 753 - 1000 < 0
-        
+    else { // 753 - 1000 < 0. for the residues
+        // 1002 - 9 - 90 - 900 ... recursively
+        N - ()
     }
 }
 
