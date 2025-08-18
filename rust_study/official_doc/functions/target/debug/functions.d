@@ -1,0 +1,1 @@
+/Users/bhg/Desktop/Education/Coding_zip/CodingTest_study/Practice/rust_study/official_doc/functions/target/debug/functions: /Users/bhg/Desktop/Education/Coding_zip/CodingTest_study/Practice/rust_study/official_doc/functions/src/main.rs
