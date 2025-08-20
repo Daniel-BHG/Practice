@@ -26,17 +26,22 @@ fn main() {
     let black = Color(0,0,0);
     let origin = Point(0,0,0);
 
-    // method syntax
-    let rect_method_syntax = Rectangle_method_syntax{
+    // unit-like structs
+    let subject = AlwaysEqual;
+
+    // -------------------------------------------------------------------------
+    // examples using struct
+    // rectangle area ex with Tuples
+    let rect1 = (30, 50);
+    println!("retangle area: {}", area(rect1));
+
+    // rectangle area ex with struct
+    let rect2 = Rectangle { // immutable
         width: 30,
         height: 50,
     };
-    println!("area of the rec is {}", rect_method_syntax.area());
+    println!("rectangle area: {}", area_struct(&rect2)); // & type - because immutable
 }
-
-// Tuple struct
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
 
 struct User {
     active: bool,
@@ -54,20 +59,24 @@ fn build_user(email: String, username: String) -> User {
     }
 }
 
-// method syntax
-struct Rectangle_method_syntax {
+// Tuple struct
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+// unit-like structs
+struct AlwaysEqual;
+
+// rectangle area with Tuples
+fn area(dimensions: (u32, u32)) -> u32 {
+    dimensions.0 * dimensions.1
+}
+
+// rectangle area ex with struct
+struct Rectangle {
     width: u32,
     height: u32,
 }
 
-impl Rectangle_method_syntax {
-    // if self exist, it's method
-    fn area_m_s(&self) -> u32 {
-        self.width * self.height
-    }
-
-    // it's a function in impl as it doesn't have self
-    fn another_square_m_s(size: u32) -> Rectangle_method_syntax{
-        Rectangle { width: size, height: size }
-    }
+fn area_struct(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
