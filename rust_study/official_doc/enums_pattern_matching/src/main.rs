@@ -30,6 +30,51 @@ fn main() {
     let some_number = Some(5); // Option<i32>
     let some_char = Some("c"); // Option<char>
     let absent_number: Option<i32> = None; // don't have a valid value, but have a type
+
+    // Match control flow
+    enum Coin_ex1{
+        Penny,
+        Nickle,
+        Dime,
+        Quarter,
+    }
+    fn value_in_cents_ex1(coin: Coin_ex1) -> u8 {
+        match coin { // which one matches with the variable?
+            Coin_ex1::Penny => { // return the multiple outputs
+                println!("Lucky penny!");
+                1
+            } 
+            Coin_ex1::Nickle => 5, // returns this value
+            Coin_ex1::Dime => 10,
+            Coin_ex1::Quarter => 25,
+        }
+    }
+
+    // patterns that bind to values
+    #[drive(Debug)] // for easily checking the status
+    enum UsState_ex2 {
+        Alabama,
+        Alaska,
+        SanFrancisco,
+    }
+    enum Coin_ex2 {
+        Penny,
+        Nickle,
+        Dime,
+        Quarter(UsState_ex2),
+    }
+    fn value_in_cents_ex2(coin: Coin_ex2) {
+        match coin {
+            Coin_ex2::Penny => 1,
+            Coin_ex2::Nickle => 5,
+            Coin_ex2::Dime => 10,
+            Coin_ex2::Quarter(state) => {
+                println!("State quarter from {state:?}!");
+                25
+            }
+
+        }
+    }
 }
 
 enum IpAddrKind_only_name {
