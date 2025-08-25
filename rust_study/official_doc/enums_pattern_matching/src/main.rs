@@ -74,6 +74,46 @@ fn main() {
             }
 
         }
+    } // value_in_cents_ex2(Coin_ex2::Quarter(UsState_ex2::Alaska)) -> then coin = Coin_ex2::Quarter(UsState::Alaska)
+
+    // Matching with Option<T>
+    fn plus_one_ex3(x: Option<i32>) -> Option<i32> {
+        match x {
+            None => None,
+            Some(i) => Some(i+1),
+        }
+    }
+    let five = Some(5);
+    let six = plus_one_ex3(five);
+    let non = plus_one_ex3(None);
+
+    // _ => wild card pattern
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => reroll(), // all the other else cases
+    }
+
+    // if let sentence when have interest in special pattern
+    // if it's None, this will not be executed
+    // ex) want to process only Some/Ok case in Option
+    let config_max = Some(3u8);
+    if let Some(max) = config_max { // if config_max is Some type
+        println!("Max is configured to be {max}");
+    }
+    // match version
+    let mut count = 0;
+    match coin {
+        Coin_ex2::Quarter(state) => println!("{state:?"),
+        _ => count += 1,
+    }
+    // if let version
+    let mut count = 0;
+    if let Coin_ex2::Quarter(state) = coin {
+        println!("{state:?}");
+    } else {
+        count += 1;
     }
 }
 
