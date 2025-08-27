@@ -1,0 +1,9 @@
+Crate
+- smallest amount of code
+Binary crates vs Library crates
+1. Binary crates : Each must have a main function for executable runs
+2. Library crates : Don't have a main function but define as functionality intended
+
+Package
+Bundle of crates
+It has Cargo.toml for describing how to build the crates

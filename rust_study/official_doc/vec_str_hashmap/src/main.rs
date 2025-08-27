@@ -19,6 +19,7 @@ fn main() {
 
     let third: Option<&i32> = v.get(2);
     match third {
+        // return Some(&v[2]) if exists
         Some(third) => println!("third element is {third}");
         None => println!("no third elem");
     }
